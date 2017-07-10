@@ -3,14 +3,14 @@ var Bell = require('bell');
 var AuthCookie = require('hapi-auth-cookie');
 var Vision = require('vision');
 var Inert = require('inert');
-var jade = require('jade');
-var env = require('node-env-file');
+var pug = require('pug');
 var routes = require('./server/routes');
 var server = new Hapi.Server();
+require('dotenv').config();
 
 server.connection({
-  host: 'localhost',
-  port: 8000
+  host: '0.0.0.0',
+  port: process.env.PORT || 3000
 });
 
 server.register([Bell, AuthCookie, Vision, Inert], function(err) {
@@ -20,7 +20,7 @@ server.register([Bell, AuthCookie, Vision, Inert], function(err) {
   }
 
   server.views({
-    engines: { jade: jade },
+    engines: { pug: pug },
     path: __dirname + '/templates',
     compileOptions: {
       pretty: true,
@@ -33,7 +33,6 @@ server.register([Bell, AuthCookie, Vision, Inert], function(err) {
     isSecure: false
   };
 
-  env(__dirname + '/.env');
   server.auth.strategy('site-point-cookie', 'cookie', authCookieOptions);
 
   var bellAuthOptions = {

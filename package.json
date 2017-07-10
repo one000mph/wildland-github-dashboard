@@ -10,7 +10,18 @@
     "type": "git",
     "url": "git+https://github.com/one000mph/wildland-github-dashboard.git"
   },
-  "author": "Heather Seaman",
+  "engines": {
+    "node": "5.0.0"
+  },
+  "authors": [
+    {
+      "name": "Heather Seaman"
+    },
+    {
+      "name": "Joe Weakley",
+      "url": "https://github.com/jweakley"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/one000mph/wildland-github-dashboard/issues"
@@ -19,16 +30,17 @@
   "dependencies": {
     "async": "^1.5.2",
     "bell": "^6.0.0",
+    "dotenv": "^2.0.0",
     "getconfig": "^2.2.0",
     "github-pagination": "^0.1.0",
-    "hapi": "^12.0.1",
+    "hapi": "16.4.3",
     "hapi-auth-cookie": "^5.0.0",
     "inert": "^3.2.0",
-    "jade": "^1.11.0",
-    "jade-bootstrap": "^1.0.1",
+    "pug": "^2.0.0-rc.2",
+    "jade-bootstrap": "^1.0.14",
     "lodash": "^3.10.1",
-    "node-env-file": "^0.1.8",
     "octonode": "^0.7.4",
+    "pug": "^2.0.0-rc.2",
     "vision": "^4.0.1"
   }
 }
